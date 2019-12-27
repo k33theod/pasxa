@@ -1,17 +1,16 @@
 #include <stdio.h>
 #include <time.h>
 
-void panselinos_pasxa(int year, struct tm *p);
 const int standar_holidays [8][2] = {{1,0},{6,0}, {25,2},{1,4}, {15,7}, {28,9}, {25,11}, {26,11}};
-const char * sh[8] = {"Protoxronia","Theofania","25 Martiou","Protomagia","Dekapentaugoustos","28 Oktobriou",
-"Xristougenna","Deuteri mera Xristougennon"};//The 2 matrices should be in correspodense
-const char * other_holidays[7]= {"Kathari Deutera","Agiou Theodorou","Savato tou Lazarou", 
-"Kuriaki ton Baion","Tis Anastaseos","Tou Thoma","Tvn Miroforon"}; 
-const int diffs[7]={-48,-43,-8,-7,0,7,14};//The 2 matrices should be in correspodense
+const char * sh[8] = {"Protoxronia","Theofania","25 Martiou","Protomagia","Dekapentaugoustos","28 Oktobriou","Xristougenna","Deuteri mera Xristougennon"};
+//The 2 matrices should be in correspodense
+const char * other_holidays[7]= {"Kathari Deutera","Agiou Theodorou","Savato tou Lazarou", "Kuriaki ton Baion","Tis Anastaseos","Tou Thoma","Tvn Miroforon"}; 
+const int diffs[7]={-48,-43,-8,-7,0,7,14};
+//The 2 matrices should be in correspodense
 //αγίου γεωργίου 23 απριλίου εάν το πάσχα πέφγτει πιο μετά 1 μέρα μετά το πασχα
-const double moon_cycle =29.53;
-const int genenthlia[]= {27,7};
 const double sex_per_day=24*60*60;
+
+void panselinos_pasxa(int year, struct tm *p);
 
 int main(int argc, char **argv)
 {
@@ -37,7 +36,6 @@ int main(int argc, char **argv)
     }
     
     printf("Kinites giortes tou %d\n\n",year);
-   
     for (int i=0;i<7;i++)
     {
         printf("%d\t", i+1);
