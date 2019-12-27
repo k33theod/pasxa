@@ -1,3 +1,5 @@
+//Το Πάσχα του 2021 έχει κάποιο bug και εμφανίζεται μία εβδομάδα νωρίτερα !@$@#21
+
 #include <stdio.h>
 #include <time.h>
 
@@ -7,7 +9,7 @@ const char * sh[8] = {"Protoxronia","Theofania","25 Martiou","Protomagia","Dekap
 const char * other_holidays[7]= {"Kathari Deutera","Agiou Theodorou","Savato tou Lazarou", "Kuriaki ton Baion","Tis Anastaseos","Tou Thoma","Tvn Miroforon"}; 
 const int diffs[7]={-48,-43,-8,-7,0,7,14};
 //The 2 matrices should be in correspodense month is 0-11 0->January
-//αγίου γεωργίου 23 απριλίου εάν το πάσχα πέφγτει πιο μετά 1 μέρα μετά το πασχα
+//Αγίου Γεωργίου 23 Απριλίου εάν το πάσχα πέφγτει πιο μετά 1 μέρα μετά το πασχα
 const double sex_per_day=24*60*60;
 
 void panselinos_pasxa(int year, struct tm *p);
@@ -17,11 +19,10 @@ int main(int argc, char **argv)
     int year=0;
     printf("Dose etos  : ");
     scanf("%d",&year);
-    struct tm ps = {.tm_year = 2020-1900, .tm_mday=0, .tm_mon=0};
-    panselinos_pasxa(year, &ps);
-    struct tm pasxa;
-    pasxa = ps;
-    pasxa.tm_mday=ps.tm_mday+7-ps.tm_wday;
+    
+    struct tm pasxa = {.tm_year = 2020-1900, .tm_mday=0, .tm_mon=0};
+    panselinos_pasxa(year, &pasxa);
+    pasxa.tm_mday=pasxa.tm_mday+7-pasxa.tm_wday;//posible bug
     time_t pasxat = mktime(&pasxa);
     printf("To pasxa tou %d peftei tin %s\n",year, ctime(&pasxat));
     
@@ -43,10 +44,10 @@ int main(int argc, char **argv)
         time_t d = pasxat + diffs[i]*sex_per_day;
         printf("%s\n", ctime(&d)); 
     }
-    
     getchar();
     return 0;
 }
+
 void panselinos_pasxa(int year,struct tm *p )
 {
     //algorith is taken from http://www.eortologio.gr/arthra/paschalion.php
