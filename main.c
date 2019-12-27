@@ -4,9 +4,11 @@
 #include <time.h>
 
 const int standar_holidays [8][2] = {{1,0},{6,0}, {25,2},{1,4}, {15,7}, {28,9}, {25,11}, {26,11}};
-const char * sh[8] = {"Protoxronia","Theofania","25 Martiou","Protomagia","Dekapentaugoustos","28 Oktobriou","Xristougenna","Deuteri mera Xristougennon"};
+const char * sh[8] = {"Protoxronia","Theofania","25 Martiou","Protomagia","Dekapentaugoustos","28 Oktobriou",
+                        "Xristougenna","Deuteri mera Xristougennon"};
 //The 2 matrices should be in correspodense
-const char * other_holidays[7]= {"Kathari Deutera","Agiou Theodorou","Savato tou Lazarou", "Kuriaki ton Baion","Tis Anastaseos","Tou Thoma","Tvn Miroforon"}; 
+const char * other_holidays[7]= {"Kathari Deutera","Agiou Theodorou","Savato tou Lazarou", "Kuriaki ton Baion",
+                        "Tis Anastaseos","Tou Thoma","Tvn Miroforon"}; 
 const int diffs[7]={-48,-43,-8,-7,0,7,14};
 //The 2 matrices should be in correspodense month is 0-11 0->January
 //Αγίου Γεωργίου 23 Απριλίου εάν το πάσχα πέφγτει πιο μετά 1 μέρα μετά το πασχα
