@@ -49,6 +49,7 @@ int main(int argc, char **argv)
 }
 void panselinos_pasxa(int year,struct tm *p )
 {
+    //algorith is taken from http://www.eortologio.gr/arthra/paschalion.php
     int month=0, day=0;
     int p1 = year-2;
     int p2 = p1%19;
