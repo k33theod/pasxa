@@ -22,7 +22,7 @@ int main(int argc, char **argv)
     printf("Dose etos  : ");
     scanf("%d",&year);
     
-    struct tm pasxa = {.tm_year = 2020-1900, .tm_mday=0, .tm_mon=0};
+    struct tm pasxa = {0};
     panselinos_pasxa(year, &pasxa);
     pasxa.tm_mday=pasxa.tm_mday+7-pasxa.tm_wday;//posible bug
     time_t pasxat = mktime(&pasxa);
